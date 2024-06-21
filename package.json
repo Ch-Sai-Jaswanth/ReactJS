@@ -1,0 +1,30 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "Learning React Js",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ch-Sai-Jaswanth/ReactJS.git"
+  },
+  "keywords": [
+    "React",
+    "Javascript"
+  ],
+  "author": "Sai Jaswanth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ch-Sai-Jaswanth/ReactJS/issues"
+  },
+  "homepage": "https://github.com/Ch-Sai-Jaswanth/ReactJS#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist" : [
+    "last 2 versions"
+  ]
+}
