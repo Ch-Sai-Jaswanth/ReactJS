@@ -1,3 +1,43 @@
-#root {
-    color: green;
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+.logo {
+    width: 200px;
+}
+
+.nav-items ul {
+    display: flex;
+}
+
+.nav-items ul li {
+    font-size: 25px;
+    padding: 10px;
+    margin: 10px;
+    list-style-type: none;
+}
+
+.rest-card {
+    padding: 10px;
+    height: 325px;
+    width: 200px;
+    margin: 5px 10px;
+    background-color: #f0f0f0;
+}
+
+.rest-card:hover {
+    border: 2px solid red;
+    cursor: pointer;
+}
+
+.rest-card-logo {
+    height: 180px;
+    width: 150px;
+}
+
+.rest-cont {
+    display: flex;
+    flex-wrap: wrap;
 }
