@@ -1,29 +1,29 @@
-
 import { useState, useEffect } from "react";
 import React from "react";
-import restList from "../utils/mockData";
+//import restList from "../utils/mockData";
 import RestCard from "../components/RestCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-    const [ListOfRestaurants, setListOfRestaurants] = useState(restList);
-    const [filteredRest, setFilteredRest] = useState(restList);
+    const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+    const [filteredRest, setFilteredRest] = useState([]);
     // const arr = useState(restList);
     // const ListOfRestaurants = arr[0];
     // const setListOfRestaurants = arr[1];
 
     const [searchtext, setSearchtext] = useState("");
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const fetchData = async () => {
         const datadb = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.6868159&lng=83.2184815&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     
         const json = await datadb.json();
-        console.log(json);
-        setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        //console.log(json);
+        setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRest(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
     return ListOfRestaurants.length === 0 ? <Shimmer /> : (
@@ -49,7 +49,7 @@ const Body = () => {
             <div className="rest-cont">
                 {
                 filteredRest.map((rest) => 
-                <RestCard key = {rest.card.card.info.id} restData = { rest } /> )
+                <RestCard key = {rest.info.id} restData = { rest } /> )
                 }
             </div>
         </div>
