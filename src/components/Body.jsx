@@ -34,15 +34,16 @@ const Body = () => {
                         setSearchtext(e.target.value);
                     }}/>
                     <button onClick={() => {
-                        const filteredList = restList.filter((res) => res.card.card.info.name.toLowerCase().includes(searchtext.toLowerCase()));
+                        const filteredList = ListOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchtext.toLowerCase()));
                         setFilteredRest(filteredList);
                     }}>Search</button>
                 </div>
                 
                 <button className="filter-btn" onClick={() => {
-                    const filteredList = restList.filter(
-                        (rest) => rest.card.card.info.avgRating > 4.2);
-                        setListOfRestaurants(filteredList);
+                    const filteredList = ListOfRestaurants.filter(
+                        (rest) => rest.info.avgRating > 4);
+                        //console.log(filteredList);
+                        setFilteredRest(filteredList);
                     }
                 }>Top Rated Restaurants</button>
             </div>

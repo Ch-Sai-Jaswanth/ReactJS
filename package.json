@@ -23,7 +23,8 @@
   "homepage": "https://github.com/Ch-Sai-Jaswanth/ReactJS#readme",
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1"
   },
   "browserslist": [
     "last 2 versions"
