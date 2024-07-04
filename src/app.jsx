@@ -7,6 +7,8 @@ import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Error from "./components/Error.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
+import User from "./components/User.jsx";  
+import UserClass from "./components/UserClass.jsx";
 
 const AppComp = () => {
     return (
