@@ -4,6 +4,7 @@ import React from "react";
 import RestCard from "../components/RestCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     const [ListOfRestaurants, setListOfRestaurants] = useState([]);
@@ -26,6 +27,13 @@ const Body = () => {
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRest(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus === false){
+        return (
+            <h1>You are Offline!! Please check your network connection...</h1>
+        )
+    }
 
     return ListOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">

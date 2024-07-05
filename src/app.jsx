@@ -1,15 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.jsx";
 import Body from "./components/Body.jsx";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
+//import Contact from "./components/Contact.jsx";
 import Error from "./components/Error.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
 import User from "./components/User.jsx";  
 import UserClass from "./components/UserClass.jsx";
 
+const Contact = lazy(() => import("./components/Contact.jsx"));
 const AppComp = () => {
     return (
         <div className="app">
@@ -34,7 +35,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path : "/contact",
-                element : <Contact />
+                element : <Suspense fallback={<h1>Page is loading..</h1>}><Contact /></Suspense>
             },
             {
                 path : "/restaurants/:resId",
