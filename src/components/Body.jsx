@@ -37,27 +37,28 @@ const Body = () => {
 
     return ListOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" value={ searchtext } onChange={(e) => {
+            <div className="filter flex">
+                <div className="search m-4 p-4">
+                    <input className="border border-solid border-black" type="text" value={ searchtext } onChange={(e) => {
                         setSearchtext(e.target.value);
                     }}/>
-                    <button onClick={() => {
+                    <button className="px-4 bg-green-400 m-4 rounded-lg" onClick={() => {
                         const filteredList = ListOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchtext.toLowerCase()));
                         setFilteredRest(filteredList);
                     }}>Search</button>
                 </div>
-                
-                <button className="filter-btn" onClick={() => {
-                    const filteredList = ListOfRestaurants.filter(
-                        (rest) => rest.info.avgRating > 4);
-                        //console.log(filteredList);
-                        setFilteredRest(filteredList);
-                    }
-                }>Top Rated Restaurants</button>
+                <div className="m-4 p-4">
+                    <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick={() => {
+                        const filteredList = ListOfRestaurants.filter(
+                            (rest) => rest.info.avgRating > 4);
+                            //console.log(filteredList);
+                            setFilteredRest(filteredList);
+                        }
+                    }>Top Rated Restaurants</button>
+                </div>
             </div>
             
-            <div className="rest-cont">
+            <div className="rest-cont flex flex-wrap">
                 {
                 filteredRest.map((rest) => 
                 <Link key = {rest.info.id} 
